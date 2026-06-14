@@ -52,3 +52,23 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Non-app artifacts
+/tool-results/
+/upload/
+/download/
+/examples/
+/agent-ctx/
+/.zscripts/
+/mini-services/
+/db/
+/scripts/
+/worklog.md
+/AGENT_RULES.md
+/.ahg-setup-stamp
+/.ahgrc
+/generate-zcode-doc.js
+/keep-alive.sh
+/watchdog.sh
+/Caddyfile
+anti-hallucination-guard/

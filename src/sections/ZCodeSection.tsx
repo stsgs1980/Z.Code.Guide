@@ -4,6 +4,9 @@ import { Monitor, ArrowLeft } from "lucide-react";
 import { SectionHeader } from "@/ui";
 import { useTheme } from "@/providers/ThemeProvider";
 import {
+  WhatIsZcodeSection,
+  InstallationSection,
+  ApiKeysSetupSection,
   FeedbackSection,
   AgentsSection,
   EditHistorySection,
@@ -28,6 +31,7 @@ import {
   BestPracticesSection,
   CheatsheetSection,
   ChangelogSection,
+  CodingToolHelperSection,
 } from "./zcode";
 
 interface ZCodeSectionProps {
@@ -65,6 +69,11 @@ export function ZCodeSection({ onBack }: ZCodeSectionProps) {
         subtitle="Agentic Development Environment — полноценная среда AI-разработки"
       />
 
+      {/* New intro sections (§1-3) */}
+      <WhatIsZcodeSection />
+      <InstallationSection />
+      <ApiKeysSetupSection />
+
       {/* Original 12 sections */}
       <FeedbackSection />
       <AgentsSection />
@@ -79,7 +88,7 @@ export function ZCodeSection({ onBack }: ZCodeSectionProps) {
       <KeyboardShortcutsSection />
       <QASection />
 
-      {/* New 12 sections from ZCode 3.0 Guide */}
+      {/* ZCode 3.0 Guide sections */}
       <InterfaceSection />
       <AgentWorkflowSection />
       <ExecutionModesSection />
@@ -88,6 +97,7 @@ export function ZCodeSection({ onBack }: ZCodeSectionProps) {
       <BotChannelSection />
       <InterfaceSettingsSection />
       <UsageStatsSection />
+      <CodingToolHelperSection />
       <NewFeaturesSection />
       <BestPracticesSection />
       <CheatsheetSection />
