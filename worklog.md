@@ -166,3 +166,42 @@ Stage Summary:
 - Анти-монолит: макс. компонент 248 строк (ModelsSection)
 - Все линтер-проверки пройдены
 - Git синхронизирован с remote
+
+---
+Task ID: 7
+Agent: main
+Task: Полный аудит скиллов + создание ZCode sub-navigation
+
+Work Log:
+- Выполнен полный ls всех 60 скиллов в /home/z/my-project/skills/ (anti-hallucination-guard/skills/ пусто)
+- Загружены и проанализированы ключевые скиллы: fullstack-dev, anti-hallucination-guard, coding-agent, ui-ux-pro-max, agent-browser
+- Проведён полный аудит текущего состояния проекта:
+  - 12 новых data-файлов в src/data/zcode/ (созданы в прошлой сессии)
+  - 12 новых секционных компонентов в src/sections/zcode/ (созданы в прошлой сессии)
+  - 24 записи навигации в zcodeNavigation (созданы в прошлой сессии)
+  - Barrel exports и ZCodeSection.tsx обновлены (сделано в прошлой сессии)
+  - ВСЕ 24 секции существуют в DOM (подтверждено через agent-browser eval)
+- Выявлен критический gap: zcodeNavigation экспортируется но НИГДЕ не использовалась
+- Выявлен gap: TableOfContents показывала только guide-секции, не ZCode под-секции
+- Выявлен gap: MobileMenu не показывал ZCode под-секции
+- Создан src/hooks/useZCodeActiveSection.ts — IntersectionObserver хук с параметром enabled
+- Модифицирован TableOfContents: на ZCode-странице показывает 24 ZCode-секции с активной подсветкой
+- Модифицирован MobileMenu: на ZCode-странице показывает 24 ZCode-секции вместо guide-навигации
+- Исправлен баг: useZCodeActiveSection инициализировался до появления ZCode-секций в DOM — добавлен параметр enabled и задержка 100мс
+- Верификация через agent-browser:
+  - Guide-страница рендерится корректно (200 OK)
+  - ZCode-страница рендерится со всеми 24 секциями
+  - TOC справа показывает "ZCODE СЕКЦИИ" с 24 кнопками (01-24)
+  - Подсветка активной секции работает (проверено скроллом вниз = "24 История релизов")
+  - Клик по TOC-кнопке скроллит к нужной секции (проверено: клик на "21" = "21Новое в 3.0")
+  - Консоль браузера: 0 ошибок
+  - Lint: 0 ошибок (исключая generate-zcode-doc.js — сторонний скрипт)
+
+Stage Summary:
+- Полная трансформация ZCode Guide завершена: 24 секции + навигация
+- Скилл fullstack-dev: использован для понимания Next.js 16 архитектуры и правил
+- Скилл anti-hallucination-guard: использован для понимания правил аудита
+- Скилл ui-ux-pro-max: использован для понимания UI паттернов
+- Скилл agent-browser: использован для E2E верификации
+- Ключевой артефакт: useZCodeActiveSection хук + обновлённые TableOfContents/MobileMenu
+- Скриншот верификации: /home/z/my-project/download/zcode-verification.png

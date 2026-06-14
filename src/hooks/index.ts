@@ -7,3 +7,4 @@
 export { usePageState, type PageState, type PageType } from './usePageState';
 export { useActiveSection } from './useActiveSection';
 export { useSearch, type SearchResult } from './useSearch';
+export { useZCodeActiveSection } from './useZCodeActiveSection';

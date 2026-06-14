@@ -16,6 +16,18 @@ import {
   ADEToolsSection,
   KeyboardShortcutsSection,
   QASection,
+  InterfaceSection,
+  AgentWorkflowSection,
+  ExecutionModesSection,
+  GoalModeSection,
+  RemoteControlSection,
+  BotChannelSection,
+  InterfaceSettingsSection,
+  UsageStatsSection,
+  NewFeaturesSection,
+  BestPracticesSection,
+  CheatsheetSection,
+  ChangelogSection,
 } from "./zcode";
 
 interface ZCodeSectionProps {
@@ -53,7 +65,7 @@ export function ZCodeSection({ onBack }: ZCodeSectionProps) {
         subtitle="Agentic Development Environment — полноценная среда AI-разработки"
       />
 
-      {/* 12 Documentation sections based on official docs */}
+      {/* Original 12 sections */}
       <FeedbackSection />
       <AgentsSection />
       <EditHistorySection />
@@ -66,6 +78,20 @@ export function ZCodeSection({ onBack }: ZCodeSectionProps) {
       <ADEToolsSection />
       <KeyboardShortcutsSection />
       <QASection />
+
+      {/* New 12 sections from ZCode 3.0 Guide */}
+      <InterfaceSection />
+      <AgentWorkflowSection />
+      <ExecutionModesSection />
+      <GoalModeSection />
+      <RemoteControlSection />
+      <BotChannelSection />
+      <InterfaceSettingsSection />
+      <UsageStatsSection />
+      <NewFeaturesSection />
+      <BestPracticesSection />
+      <CheatsheetSection />
+      <ChangelogSection />
     </section>
   );
 }
